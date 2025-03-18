@@ -1,9 +1,9 @@
 {
   "name": "Python Dev Container",
-  "image": "060795913657.dkr.ecr.us-east-2.amazonaws.com/garrett/python-test:latest",
-  // "build": {
-  //   "dockerfile": "../Dockerfile"
-  // },
+  // "image": "060795913657.dkr.ecr.us-east-2.amazonaws.com/garrett/python-test:latest",
+  "build": {
+    "dockerfile": "../Dockerfile"
+  },
   "workspaceFolder": "/app",
   "customizations": {
     "vscode": {
@@ -32,6 +32,10 @@
       ]
     }
   },
+  // "mounts": [
+  //   "source=${localEnv:HOME}/.gitconfig,target=/root/.gitconfig,type=bind"
+  // ],
+  "postStartCommand": "git config --global --add safe.directory ${containerWorkspaceFolder}",
   "runArgs": ["--init"],
   "containerEnv": {
     "PYTHONDONTWRITEBYTECODE": "1",
