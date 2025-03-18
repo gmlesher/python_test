@@ -1,0 +1,40 @@
+{
+  "name": "Python Dev Container",
+  "image": "060795913657.dkr.ecr.us-east-2.amazonaws.com/garrett/python-test:latest",
+  // "build": {
+  //   "dockerfile": "../Dockerfile"
+  // },
+  "workspaceFolder": "/app",
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "[python]": {
+          "editor.formatOnSave": true,
+          "editor.codeActionsOnSave": {
+            "source.fixAll": "explicit",
+            "source.organizeImports": "explicit"
+          },
+          "editor.defaultFormatter": "charliermarsh.ruff"
+        },
+        "python.analysis.typeCheckingMode": "strict",
+        "python.analysis.typeEvaluation.strictDictionaryInference": true,
+        "python.analysis.typeEvaluation.strictListInference": true,
+        "python.analysis.typeEvaluation.strictSetInference": true,
+        "python.analysis.languageServerMode": "full",
+        "python.analysis.typeEvaluation.deprecateTypingAliases": true
+      },
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance", // type checker
+        "charliermarsh.ruff", // linter and formatter
+        "streetsidesoftware.code-spell-checker", // spell checker
+        "tamasfe.even-better-toml" // TOML file syntax highlighting
+      ]
+    }
+  },
+  "runArgs": ["--init"],
+  "containerEnv": {
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "PYTHONUNBUFFERED": "1"
+  }
+}
